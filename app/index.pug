@@ -1,0 +1,70 @@
+doctype html
+html(lang="en-En")
+    head 
+        title= page_meta.title 
+        meta(charset="UTF-8")
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='description' content=`${page_meta.meta_description}`)
+        meta(name='keywords' content=`${page_meta.meta_keywords}`)
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        link(rel='stylesheet' href="css/app.min.css")
+        link(rel='stylesheet' href="css/media.css")
+        link(rel='stylesheet' href="css/style.css")
+    body
+    .container.is-max-widescreen
+        header.has-background-white.pt-4
+            .columns.is-mobile
+                .column.is-6
+                    a(href="/").has-text-black.ml-3= "LOGO" 
+                .column.is-6.has-text-right
+                    a(href="").has-text-black.mr-3="registration" 
+        nav.has-background-white.mb-3.mt-5     
+            .menu
+                .menu-list
+                    ul.is-flex
+                        //- item element menu
+                        each item in nav
+                            li 
+                                a(href=`${item.href}`)= item.text
+        nav.breadcrumb.ml-3.is-small 
+            ul 
+                //- item element breadcrumbs
+                each item in breadcrumbs
+                    li   
+                        a(href=`${item.href}`)= item.text            
+        main
+            .columns
+                .column.is-3
+                    aside.pt-4.pb-4.has-background-white
+                        nav 
+                            div.navbar.is-flex-direction-column
+                                a(href="").navbar-item= 'param1'
+                                a(href="").navbar-item= 'param2'
+                                a(href="").navbar-item= 'param3'
+                                a(href="").navbar-item= 'param4'
+                                a(href="").navbar-item= 'param5'
+                .column.is-9
+                    section
+                        .columns.is-flex-direction-column
+                            //- item element
+                            each item in stock
+                                article
+                                    .column.has-background-white.mr-3.mt-3.mb-1.is-flex
+                                        img(src=`./img/dest/${item.image}`)
+                                        div.item_content.ml-3.is-flex.is-flex-direction-column
+                                            h3.has-text-weight-bold.mb-4= item.title
+                                            p=  'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum commodi porro rem ex distinctio. Voluptatibus, ad! Maiores quo aperiam a commodi illo harum corporis consequuntur natus consectetur sint, deserunt quia?'
+                                            div.item_tag
+                                                span.tag.is-dark= item.year
+                                                span.tag.is-dark.ml-2= item.mileage
+                                                span.tag.is-dark.ml-2= item.axle_configuration
+                                        div.item_price.ml-4
+                                            span.has-text-weight-semibold= `$${item.price}`
+        footer.has-background-black.mt-5.has-text-centered  
+            a(href="/").has-text-white= "LOGO" 
+
+
+
+
+
+
